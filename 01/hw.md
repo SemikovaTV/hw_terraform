@@ -58,22 +58,64 @@ resource "docker_image" "semikova_docker_image" {
 │ A name must start with a letter or underscore and may contain only letters, digits,
 │ underscores, and dashes.
 ```
-Некорректное имя ресурса - не может начинаться с цифры
+Некорректное имя ресурсa
 
 Исправила:
 ```bash
 resource "docker_container" "nginx" {
   image = docker_image.nginx.image_id
-  name  = "example_${random_password.random_string_FAKE.resulT}"
+  name  = "example_${random_password.random_string.result}"
 ```
 
 
 6. Выполните код. В качестве ответа приложите: исправленный фрагмент кода и вывод команды ```docker ps```.
+```bash
+resource "docker_image" "nginx" {
+  name         = "nginx:latest"
+  keep_locally = true
+}
+
+resource "docker_container" "nginx" {
+  image = docker_image.nginx.image_id
+  name  = "example_${random_password.random_string.result}"
+
+  ports {
+    internal = 80
+    external = 8000
+  }
+
+root@debian:/home/stv/ter-homeworks/01/src# docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                  NAMES
+b4b816e848c9   a6bd71f48f68   "/docker-entrypoint.…"   8 seconds ago   Up 6 seconds   0.0.0.0:8000->80/tcp   example_qoRzxm9NTqspKpZY
+```
 7. Замените имя docker-контейнера в блоке кода на ```hello_world```. Не перепутайте имя контейнера и имя образа. Мы всё ещё продолжаем использовать name = "nginx:latest". Выполните команду ```terraform apply -auto-approve```.
 Объясните своими словами, в чём может быть опасность применения ключа  ```-auto-approve```. Догадайтесь или нагуглите зачем может пригодиться данный ключ? В качестве ответа дополнительно приложите вывод команды ```docker ps```.
-8. Уничтожьте созданные ресурсы с помощью **terraform**. Убедитесь, что все ресурсы удалены. Приложите содержимое файла **terraform.tfstate**. 
-9. Объясните, почему при этом не был удалён docker-образ **nginx:latest**. Ответ **обязательно** подкрепите строчкой из документации [**terraform провайдера docker**](https://docs.comcloud.xyz/providers/kreuzwerker/docker/latest/docs).  (ищите в классификаторе resource docker_image )
+#### Ответ
+```bash
+root@debian:/home/stv/ter-homeworks/01/src# docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                  NAMES
+c3b6db5de3f9   a6bd71f48f68   "/docker-entrypoint.…"   2 minutes ago   Up 2 minutes   0.0.0.0:8000->80/tcp   hello-world
+```
+Опасность применения данного ключа в том, что мы не можем заранее просмотреть план и отследить какие именно действия мы собираемся совершить. В данном случае - мы удалили старую конфигурацию и создали новую.
 
+9. Уничтожьте созданные ресурсы с помощью **terraform**. Убедитесь, что все ресурсы удалены. Приложите содержимое файла **terraform.tfstate**.
+#### Ответ
+```bash
+root@debian:/home/stv/ter-homeworks/01/src# cat terraform.tfstate
+{
+  "version": 4,
+  "terraform_version": "1.6.5",
+  "serial": 15,
+  "lineage": "2bd3f936-af7f-9fab-2ccd-1164d7f04d07",
+  "outputs": {},
+  "resources": [],
+  "check_results": null
+}
+```
+10. Объясните, почему при этом не был удалён docker-образ **nginx:latest**. Ответ **обязательно** подкрепите строчкой из документации [**terraform провайдера docker**](https://docs.comcloud.xyz/providers/kreuzwerker/docker/latest/docs).  (ищите в классификаторе resource docker_image )
+
+#### Ответ
+Установлен параметр keep_locally=true, образ Docker не будет удален при операции уничтожения. Если это значение ложно, оно удалит изображение из локального хранилища докера при операции уничтожения.
 
 ------
 
