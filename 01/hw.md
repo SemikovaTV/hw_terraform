@@ -140,7 +140,7 @@ Terraform will perform the following actions:
       + id        = (known after apply)
       + image     = "/home/stv/ter-homeworks/01/src/centos-7-x86_64.box"
       + memory    = "512 mib"
-      + name      = "debian-jessie"
+      + name      = "centos7"
       + status    = "running"
       + user_data = "./home/stv/user_data"
 
