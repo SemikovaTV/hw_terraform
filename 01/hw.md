@@ -131,3 +131,36 @@ shekeriev.
 2. Создайте с его помощью любую виртуальную машину. Чтобы не использовать VPN, советуем выбрать любой образ с расположением в GitHub из [**списка**](https://www.vagrantbox.es/).
 
 В качестве ответа приложите plan для создаваемого ресурса и скриншот созданного в VB ресурса. 
+```bash
+root@stv-MS-7699:/home/stv/ter-homeworks/01/src# terraform plan
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are
+indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # virtualbox_vm.vm1 will be created
+  + resource "virtualbox_vm" "vm1" {
+      + cpus      = 1
+      + id        = (known after apply)
+      + image     = "./ Debian-jessie-amd64-netboot.box"
+      + memory    = "512 mib"
+      + name      = "debian-jessie"
+      + status    = "running"
+      + user_data = "./home/stv/user_data"
+
+      + network_adapter {
+          + device                 = "IntelPro1000MTDesktop"
+          + host_interface         = "vboxnet1"
+          + ipv4_address           = (known after apply)
+          + ipv4_address_available = (known after apply)
+          + mac_address            = (known after apply)
+          + status                 = (known after apply)
+          + type                   = "hostonly"
+        }
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+```
+
