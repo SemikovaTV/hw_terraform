@@ -144,8 +144,8 @@ Terraform will perform the following actions:
       + status    = "running"
       + user_data = "./home/stv/user_data"
 
-      + network_adapter {
-          + device                 = "IntelPro1000MTDesktop"
+       + network_adapter {
+          + device                 = "IntelPro1000MTServer"
           + host_interface         = "vboxnet1"
           + ipv4_address           = (known after apply)
           + ipv4_address_available = (known after apply)
@@ -157,5 +157,3 @@ Terraform will perform the following actions:
 
 Plan: 1 to add, 0 to change, 0 to destroy.
 ```
-![ad]
-
