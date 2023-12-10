@@ -1,0 +1,22 @@
+###ya vars
+
+variable "vm_web_family" {
+  type        = string
+  default     = "ubuntu-2004-lts"
+  description = "image family"
+}
+
+variable "vm_web_name" {
+  type        = string
+  defauLt     = "netology-develop-platform-web"
+  description = "resource name"
+
+variable "vm_web_platform"
+  type        = string
+  default     = "standard-v1"
+  description = "platform_id"
+
+variable "vm_web_cores"
+  type        = "string"
+  default     = "2"
+  description
