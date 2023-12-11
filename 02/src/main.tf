@@ -12,26 +12,13 @@ data "yandex_compute_image" "ubuntu" {
   family = var.vm_web_family
 }
 resource "yandex_compute_instance" "platform" {
-  name        = var.vm_web_name
+  name        = local.vm1_name
   platform_id = var.vm_web_platform
   resources {
     cores         = var.vm_web_cores
     memory        = var.vm_web_memory
     core_fraction = var.vm_web_core_fraction
   }
-/*
-data "yandex_compute_image" "ubuntu2" {
-  family = var.vm_db_family
-}
-resource "yandex_compute_instance" "platform1" {
-  name        = var.vm_db_name
-  platform_id = var.vm_db_platform
-  resources {
-    cores         = var.vm_db_cores
-    memory        = var.vm_db_memory
-    core_fraction = var.vm_db_core_fraction
-  }
-*/
   boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.ubuntu.id
