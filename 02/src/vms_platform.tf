@@ -76,3 +76,29 @@ variable "vm_db_core_fraction" {
   default     = "20"
   description = "core fraction"
 }
+
+###for vms resources
+variable "vms_resources" {
+  description = "resources for vms"
+  type        = map(map(number))
+  default     = {
+    vm_web_resources = {
+      cores   = 2
+      memory  = 1
+      core_fraction = 5
+    }
+    vm_db_resources = {
+      cores   = 2
+      memory  = 2
+      core_fraction = 20
+    }
+  }
+}
+variable "vms_metadata" {
+  type        = map (string)
+  default     = {
+    serial-port-enable = 1
+    ssh-keys           = khbqpaifbv hbvaiubevripub
+  }
+}
+  

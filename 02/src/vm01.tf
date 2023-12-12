@@ -5,9 +5,9 @@ resource "yandex_compute_instance" "platform1" {
   name        = local.vm2_name
   platform_id = var.vm_db_platform
   resources {
-    cores         = var.vm_db_cores
-    memory        = var.vm_db_memory
-    core_fraction = var.vm_db_core_fraction
+    cores         = var.vms_resources.vm_db_resources.cores
+    memory        = var.vms_resources.vm_db_resources.memory
+    core_fraction = var.vms_resources.vm_db_resources.core_fraction
   }
 
   boot_disk {
