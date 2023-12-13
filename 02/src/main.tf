@@ -12,7 +12,7 @@ data "yandex_compute_image" "ubuntu" {
   family = var.vm_web_family
 }
 resource "yandex_compute_instance" "platform" {
-  name        = local.vm1_name
+  name        = var.name_vm1
   platform_id = var.vm_web_platform
   resources {
     cores         = var.vms_resources.vm_web_resources.cores
