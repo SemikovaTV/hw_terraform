@@ -31,15 +31,6 @@ variable "vpc_name" {
   description = "VPC network & subnet name"
 }
 
-
-###ssh vars
-
-variable "vms_ssh_root_key" {
-  type        = string
-  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILtBJkOErFb1rvkR8pN3gqleR9FdMmNZ3SML2MXC0oJs root@stv-MS-7699"
-  description = "ssh-keygen -t ed25519"
-}
-
 ###ex-locals
 
 variable "name_vm1"{
