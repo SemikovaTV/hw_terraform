@@ -40,6 +40,17 @@ variable "vms_ssh_root_key" {
   description = "ssh-keygen -t ed25519"
 }
 
+###ex-locals
+
+variable "name_vm1"{
+  type        = string
+  default     = "netology-develop-platform-web"
+}
+
+variable "name_vm2"{
+  type        = string
+  default     = "netology-develop-platform-db"
+}
 
 
 
