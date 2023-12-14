@@ -94,11 +94,11 @@ variable "vms_resources" {
     }
   }
 }
-variable "vms_metadata" {
+/*variable "vms_metadata" {
   type        = map (string)
   default     = {
     serial-port-enable = 1
     ssh-keys           = khbqpaifbv hbvaiubevripub
   }
 }
-  
+*/  
