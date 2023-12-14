@@ -6,14 +6,6 @@ variable "vm_web_family" {
   description = "image family vm1"
 }
 
-/*
-  variable "vm_web_name" {
-  type        = string
-  default     = "netology-develop-platform-web"
-  description = "resource name vm1"
-}
-*/
-
 variable "vm_web_platform"{
   type        = string
   default     = "standard-v1"
@@ -44,14 +36,6 @@ variable "vm_db_family" {
   default     = "ubuntu-2004-lts"
   description = "image family"
 }
-
-/*
-variable "vm_db_name" {
-  type        = string
-  default     = "netology-develop-platform-db"
-  description = "resource name"
-}
-*/
 
 variable "vm_db_platform"{
   type        = string
@@ -94,11 +78,3 @@ variable "vms_resources" {
     }
   }
 }
-/*variable "vms_metadata" {
-  type        = map (string)
-  default     = {
-    serial-port-enable = 1
-    ssh-keys           = khbqpaifbv hbvaiubevripub
-  }
-}
-*/  
