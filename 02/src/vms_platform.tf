@@ -78,3 +78,11 @@ variable "vms_resources" {
     }
   }
 }
+
+variable "vms_metadata" {
+  type        = map (string)
+  default     = {
+    serial-port-enable = "1"
+    ssh-keys           = "sh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILtBJkOErFb1rvkR8pN3gqleR9FdMmNZ3SML2MXC0oJs root@stv-MS-7699"
+  }
+}
