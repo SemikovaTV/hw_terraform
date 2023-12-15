@@ -63,7 +63,7 @@ variable "vm_web_family" {
 
 variable "metadata" {
   type        = map
-  default     = {serial_port_enable = "1", ssh_keys = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILRWZhcEj3EzyzZJzBW9QA4oQazGqYsD/ymk8hb64knL root@stv-MS-7699"}
+  default     = {serial_port_enable = "1", ssh_keys = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN53ii69hQqHsHhrq6Y8QEZvBk5NG7Hie3nkyXuJD4HP root@stv-MS-7699"}
 }
 
 variable "security_group" {

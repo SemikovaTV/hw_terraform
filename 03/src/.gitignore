@@ -8,3 +8,5 @@
 
 # own secret vars store.
 personal.auto.tfvars
+yc_ssh
+yc_ssh.pub
