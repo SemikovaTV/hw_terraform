@@ -68,7 +68,7 @@ variable "metadata" {
 
 variable "security_group" {
   type        = string
-  default     = "enpdgbntsmc39ki220uv"
+  default     = "enp04bsqhmt0ofd33ka2"
 }
 
 
@@ -92,6 +92,45 @@ variable "each_vm" {
     core_fraction = 20
     }]
   }
+
+### for disk_vm.tf
+###variables for exercise 3
+
+variable "count_d" {
+  type        = number
+  default     = "3"
+}
+
+variable "disk_name" {
+  type        = string
+  default     = "disk"
+}
+
+variable "disk_size" {
+  type        = number
+  default     = "1"
+}
+
+variable "storage_name" {
+  type        = string
+  default     = "storage"
+}
+
+variable "storage_core" {
+  type        = number
+  default     = "2"
+}
+
+variable "storage_memory" {
+  type        = number
+  default     = "4"
+}
+
+variable "storage_core_fraction" {
+  type        = number
+  default     = "5"
+}
+
 
 
 
