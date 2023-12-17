@@ -131,6 +131,10 @@ variable "storage_core_fraction" {
   default     = "5"
 }
 
+variable "public_key" {
+  type        = string
+  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN53ii69hQqHsHhrq6Y8QEZvBk5NG7Hie3nkyXuJD4HP root@stv-MS-7699"
+}
 
 
 
